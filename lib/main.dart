@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:news/my_theme.dart';
 
 import 'home/HomeScreen.dart';
 
@@ -16,6 +17,8 @@ class MyApp extends StatelessWidget {
       routes: {
   HomeScreen.routeName:(context)=>HomeScreen(),
       },
+      theme: MyTheme.lighttheme,
+      debugShowCheckedModeBanner: false,
     );
   }
 }
