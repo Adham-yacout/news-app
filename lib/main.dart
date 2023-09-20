@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:news/my_theme.dart';
+import 'package:news/news/newsdetails.dart';
 
 import 'home/HomeScreen.dart';
 
@@ -15,7 +16,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       initialRoute: HomeScreen.routeName,
       routes: {
-  HomeScreen.routeName:(context)=>HomeScreen(),
+      HomeScreen.routeName:(context)=>HomeScreen(),
+        newsdetails.routeName:(context)=>newsdetails(),
       },
       theme: MyTheme.lighttheme,
       debugShowCheckedModeBanner: false,

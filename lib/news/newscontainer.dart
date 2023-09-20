@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:news/api_manager.dart';
-import 'package:news/home/newsitem.dart';
+
 import 'package:news/model/NewResponse.dart';
 import 'package:news/model/SourcesResponse.dart';
 import 'package:news/my_theme.dart';
+import 'package:news/news/newsitem.dart';
 
 class NewsContainer extends StatelessWidget {
   Source source;
