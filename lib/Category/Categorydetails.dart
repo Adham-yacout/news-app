@@ -13,7 +13,7 @@ class CategoryDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<SourcesResponse>(
-        future: ApiManager.getSources(category.id),
+        future: ApiManager.getSources( category.id),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(child: CircularProgressIndicator(
