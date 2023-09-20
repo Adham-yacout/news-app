@@ -6,7 +6,8 @@ import 'Category_item.dart';
 
 class CategoryScreen extends StatelessWidget {
 var categorylist=Categoryy.getCategories();
-
+Function oncategoryitemclick;
+CategoryScreen({required this.oncategoryitemclick});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -30,7 +31,13 @@ var categorylist=Categoryy.getCategories();
                  crossAxisSpacing: 18,
                ),
                itemBuilder:(context,index){
-                 return Categoryitem(category:categorylist[index] ,index:index ,);
+                 return InkWell(
+                   onTap: (){
+              oncategoryitemclick(categorylist[index]);
+                   },
+                   child: Categoryitem(category:categorylist[index]
+                     ,index:index ,),
+                 );
                } ,
              itemCount: categorylist.length,
            ),

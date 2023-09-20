@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:news/my_theme.dart';
 
 class HomeDrawer extends StatelessWidget {
-
-
+static const int categories=1;
+static const int settings=2;
+Function ondraweritemclick;
+HomeDrawer({required this.ondraweritemclick});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -30,8 +32,8 @@ class HomeDrawer extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(10),
             child: InkWell(
-              onTap: (){
-
+              onTap : (){
+ondraweritemclick(HomeDrawer.categories);
               },
               child: Row(children: [
                 Icon(Icons.list),
@@ -44,7 +46,9 @@ class HomeDrawer extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(10),
             child: InkWell(
-              onTap: (){},
+              onTap: (){
+                ondraweritemclick(HomeDrawer.settings);
+              },
               child: Row(children: [
                 Icon(Icons.settings),
                 SizedBox(width: 10,),

@@ -1,13 +1,21 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:news/Category/Categorydetails.dart';
+import 'package:news/Category/category.dart';
 import 'package:news/Category/category_screen.dart';
 import 'package:news/my_theme.dart';
+import 'package:news/settings/settingstab.dart';
 
 import 'HomeDrawer.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   static const String routeName="home";
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -35,11 +43,35 @@ class HomeScreen extends StatelessWidget {
           centerTitle: true,
         ),
         drawer: Drawer(
-          child: HomeDrawer(),
+
+          child:
+          HomeDrawer(ondraweritemclick: ondraweritemclick),
 
         ),
-        body:CategoryDetails() ,
+        body:selecteditemdrawer==HomeDrawer.settings? settingstab():
+        selectedcat==null?
+        CategoryScreen(oncategoryitemclick: oncategoryitemclick,)
+            :
+        CategoryDetails(category: selectedcat!),
       ),
     );
+  }
+
+  Categoryy ? selectedcat=null;
+var selecteditemdrawer=HomeDrawer.categories;
+  void oncategoryitemclick(Categoryy category)
+  {
+    selectedcat=category;
+    setState(() {
+
+    });
+  }
+  void ondraweritemclick(int selected){
+selecteditemdrawer=selected;
+Navigator.pop(context);
+selectedcat=null;
+setState(() {
+
+});
   }
 }
