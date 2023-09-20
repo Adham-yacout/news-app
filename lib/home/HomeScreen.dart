@@ -4,6 +4,7 @@ import 'package:news/Category/Categorydetails.dart';
 import 'package:news/Category/category.dart';
 import 'package:news/Category/category_screen.dart';
 import 'package:news/my_theme.dart';
+import 'package:news/search/newssearch.dart';
 import 'package:news/settings/settingstab.dart';
 
 import 'HomeDrawer.dart';
@@ -41,6 +42,9 @@ class _HomeScreenState extends State<HomeScreen> {
             style: Theme.of(context).textTheme.displayLarge,
          ),
           centerTitle: true,
+          actions: [ IconButton(onPressed: (){
+showSearch(context: context, delegate: NewsSearch());
+      }, icon: Icon(Icons.search,size: 32,), )],
         ),
         drawer: Drawer(
 

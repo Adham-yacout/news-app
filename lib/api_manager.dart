@@ -24,11 +24,12 @@ try{
 
   }
 
- static Future<NewResponse> getNews(String sourceid) async{
+ static Future<NewResponse> getNews({String? sourceid,String? keyword}) async{
 var url=Uri.https(baseurl,'/v2/everything',
 {
   'apiKey': '28939bc62cc84485b3844867d85474ea',
   'sources':sourceid,
+  'q':keyword,
 });
 try{
   var response=await http.get(url);
