@@ -1,19 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:news/Category/category.dart';
 
 import 'Category_item.dart';
 
 class CategoryScreen extends StatelessWidget {
-
+var categorylist=Categoryy.getCategories();
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(12),
+
       decoration: BoxDecoration(
         image: DecorationImage(
           image: AssetImage('assetes/images/background.png'),
-          fit: BoxFit.fill,
+          fit: BoxFit.cover,
         ),
       ),
      child: Column(
@@ -26,12 +27,12 @@ class CategoryScreen extends StatelessWidget {
                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                  crossAxisCount: 2,
                  mainAxisSpacing: 18,
-                 crossAxisSpacing: 18
+                 crossAxisSpacing: 18,
                ),
                itemBuilder:(context,index){
-                 return Categoryitem();
+                 return Categoryitem(category:categorylist[index] ,index:index ,);
                } ,
-             itemCount: 8,
+             itemCount: categorylist.length,
            ),
          )
        ],
